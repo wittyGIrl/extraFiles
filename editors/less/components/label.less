@@ -1,0 +1,89 @@
+// Labels
+// ------------------------------
+
+.x-editor-label {
+	.transition( color @animation-duration );
+	color: @label-color;
+	display: inline-block;
+	margin: 0 @spacing-sm;
+	min-width: 150px;
+	text-align: center;
+  // vertical-align: middle;
+
+	& .right{
+		min-width: 120px;
+		font-size: 15px;
+	}
+}
+
+// Groups
+// ------------------------------
+
+.x-editor-field {
+	margin-bottom: @spacing-md;
+	position: relative;
+}
+
+
+// Validation
+// ------------------------------
+
+
+// message
+.is-invalid{
+	& .x-editor-label {
+			color: @app-danger;
+		}
+	&	.x-editor {
+			border-color: @app-danger;
+
+			&:focus {
+				border-color: @app-danger;
+				box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 3px fade(@app-danger, 10%);
+			}
+		}
+}
+
+.is-valid{
+	& .x-editor-label {
+		color: @app-success;
+	}
+	& .x-editor {
+		border-color: @app-success;
+
+		&:focus {
+			border-color: @app-success;
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 3px fade(@app-success, 10%);
+		}
+	}
+}
+
+.x-editor-validation {
+	.animation( formValidationMessage @animation-duration ease );
+	font-size: @font-size-xs;
+	margin-top: .5em;
+	overflow: hidden;
+	color: @app-danger;
+}
+
+// Checkbox & Radio
+// ------------------------------
+
+.x-radio-label{
+  margin-left: @spacing-sm;
+}
+
+.x-checkbox-label{
+  .transition( color @animation-duration );
+  color: @label-color;
+}
+
+
+@-webkit-keyframes formValidationMessage {
+	from { max-height: 0; opacity: 0; }
+	to   { max-height: @font-size-base; opacity: 1; }
+}
+@keyframes formValidationMessage {
+	from { max-height: 0; opacity: 0; }
+	to   { max-height: @font-size-base; opacity: 1; }
+}

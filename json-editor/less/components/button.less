@@ -1,0 +1,65 @@
+/*
+* from json
+*/
+.link-button {
+	color: @link-color;
+	font-weight: normal;
+	cursor: pointer;
+
+	&,
+	&:active,
+	&.active,
+	&[disabled] {
+		.box-shadow(none);
+		background-color: transparent;
+	}
+	&,
+	&:hover,
+	&:focus,
+	&:active {
+		border-color: transparent;
+		outline: none;
+	}
+	&:hover,
+	&:focus {
+		background-color: transparent;
+		color: @link-hover-color;
+		text-decoration: underline;
+	}
+}
+.link-text {
+	.link-button();
+	color: @text-color;
+
+	&:hover,
+	&:focus {
+		color: @app-primary;
+		outline: none;
+	}
+}
+
+.flat-button {
+	border: 10px;
+	box-sizing: border-box;
+	display: inline-block;
+	font-family: Roboto, sans-serif;
+	cursor: pointer;
+	text-decoration: none;
+	margin: 0px;
+	padding: 0px;
+	height: 36px;
+	line-height: 36px;
+	// min-width: 88px;
+	color: black;
+	border-radius: 2px;
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+	.user-select(none);
+	background-color: rgba(0, 0, 0, 0);
+	outline: none;
+
+	&:hover {
+		background-color: #E0E0E0;
+	}
+}

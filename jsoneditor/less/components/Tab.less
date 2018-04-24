@@ -1,0 +1,52 @@
+.Tab{
+  display: table-cell;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  height: @tab-height;
+  line-height: @tab-height;
+  color: rgba(255, 255, 255, 0.6);
+  outline: none;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: initial;
+  font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  box-sizing: border-box;
+  &:hover{
+    background-color: @tab-selected-background;
+  }
+  &.selected{
+    color: rgb(255, 255, 255);
+  }
+}
+
+.TabTemplate{
+  overflow-x: hidden;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.TabItemContainer{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: @tab-height;
+  background-color: @tab-background;
+  white-space: nowrap;
+  display: table;
+}
+
+.Tabs{
+  overflow-x:hidden;
+}
+
+.TabContent{
+  display: flex;
+  overflow-x: hidden;
+}
+
+.SwitchContainer{
+  display: flex;
+  width: 100%;
+  .transition( @common-transition );
+}

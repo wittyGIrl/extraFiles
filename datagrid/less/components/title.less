@@ -1,0 +1,33 @@
+.x-title{
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: @border-color;
+
+  font-size: @font-size-base;
+  font-weight: bold;
+
+  color: #575765;
+  height: @component-height;
+  line-height: @component-height;
+  padding: @component-padding;
+  position: relative;
+
+  background-color: @bg-color;
+  .background-linear-gradient(top; #F8F8F8 0; #eeeeee 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F8F8F8,endColorstr=#eeeeee,GradientType=0);
+}
+
+.x-title-tool{
+  position: absolute;
+  top: 50%;
+  right: 1px;
+  margin-top: -8px;
+  height: @component-height;
+  overflow: hidden;
+
+  & .x-btn {
+    height: @component-height;
+    vertical-align: top;
+  }
+}

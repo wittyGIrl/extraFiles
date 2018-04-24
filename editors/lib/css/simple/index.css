@@ -1,0 +1,500 @@
+.x-editor {
+  -moz-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  /* Firefox 4 */
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  -o-box-sizing: content-box;
+  -ms-box-sizing: content-box;
+  box-sizing: content-box;
+  background-color: white;
+  background-image: none;
+  border-radius: 0.3em;
+  border: 1px solid #ccc;
+  border-top-color: #c2c2c2;
+  border-bottom-color: #d6d6d6;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  color: #333;
+  line-height: 2em;
+  height: 2em;
+  padding: 0 0.75em;
+}
+.x-editor:hover {
+  outline: 0;
+}
+.x-editor.focus,
+.x-editor.is-focused {
+  border-color: #1385e5;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 1px rgba(19, 133, 229, 0.33);
+  outline: 0;
+}
+.x-editor.disabled,
+.x-editor[disabled] {
+  background-color: #f7f7f7;
+  pointer-events: none;
+}
+.x-editor::-moz-focus-inner {
+  border: 0;
+  outline: 0;
+}
+.x-editor::-ms-expand {
+  display: none;
+}
+.x-editor::-ms-clear {
+  display: none;
+}
+.x-editor-noedit {
+  display: inline-block;
+  color: #333;
+  padding: 0.5em 0.75em;
+}
+.x-editor-noedit-multiline {
+  line-height: 1.3;
+  height: auto;
+  padding: 0.5em 0.75em;
+  white-space: normal;
+}
+textarea.x-editor {
+  overflow: auto;
+  resize: vertical;
+  height: auto;
+  line-height: 1.4em;
+  min-height: 6.75em;
+  padding: 0.5em 0.75em;
+}
+.x-combobox {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  border-bottom-color: #c2c2c2;
+  border-top-color: #d6d6d6;
+}
+.x-combobox:focus {
+  box-shadow: 0 0 0 3px rgba(19, 133, 229, 0.1);
+}
+.x-combobox.disabled,
+.x-combobox[disabled] {
+  color: #999;
+}
+.x-checkbox {
+  box-shadow: none;
+  height: 0.9em;
+}
+.x-radio {
+  box-shadow: none;
+  height: 0.9em;
+}
+.x-radio.focus,
+.x-radio.is-focused {
+  border-color: none;
+  box-shadow: none;
+  outline: 0;
+}
+.x-textbox-container {
+  display: inline-block;
+}
+.x-editor-lg {
+  font-size: 1.25rem;
+}
+.x-editor-sm {
+  font-size: 0.9rem;
+}
+.x-editor-xs {
+  font-size: 0.7rem;
+  line-height: 1.9;
+  padding: 0;
+  margin: 0;
+  height: 1.5em;
+}
+.x-editor-label {
+  -moz-transition: color 280ms;
+  /* Firefox 4 */
+  -webkit-transition: color 280ms;
+  -o-transition: color 280ms;
+  transition: color 280ms;
+  color: #777;
+  display: inline-block;
+  margin: 0 0.5em;
+  min-width: 150px;
+  text-align: center;
+}
+.x-editor-label .right {
+  min-width: 120px;
+  font-size: 15px;
+}
+.x-editor-field {
+  margin-bottom: 1em;
+  position: relative;
+}
+.is-invalid .x-editor-label {
+  color: #d64242;
+}
+.is-invalid .x-editor {
+  border-color: #d64242;
+}
+.is-invalid .x-editor:focus {
+  border-color: #d64242;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 3px rgba(214, 66, 66, 0.1);
+}
+.is-valid .x-editor-label {
+  color: #34c240;
+}
+.is-valid .x-editor {
+  border-color: #34c240;
+}
+.is-valid .x-editor:focus {
+  border-color: #34c240;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 3px rgba(52, 194, 64, 0.1);
+}
+.x-editor-validation {
+  -webkit-animation: formValidationMessage 280ms ease;
+  -o-animation: formValidationMessage 280ms ease;
+  animation: formValidationMessage 280ms ease;
+  font-size: 0.7rem;
+  margin-top: .5em;
+  overflow: hidden;
+  color: #d64242;
+}
+.x-radio-label {
+  margin-left: 0.5em;
+}
+.x-checkbox-label {
+  -moz-transition: color 280ms;
+  /* Firefox 4 */
+  -webkit-transition: color 280ms;
+  -o-transition: color 280ms;
+  transition: color 280ms;
+  color: #777;
+}
+@-webkit-keyframes formValidationMessage {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 14px;
+    opacity: 1;
+  }
+}
+@keyframes formValidationMessage {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 14px;
+    opacity: 1;
+  }
+}
+.x-editor-note {
+  font-size: 0.9rem;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
+.x-editor-note-default {
+  color: #777;
+}
+.x-editor-note-primary {
+  color: #1385e5;
+}
+.x-editor-note-success {
+  color: #34c240;
+}
+.x-editor-note-danger {
+  color: #d64242;
+}
+.triangle-arrow,
+.triangle-arrow-up,
+.triangle-arrow-down,
+.x-datebox-tether-element-attached-top .x-datebox-triangle,
+.x-datebox-tether-element-attached-bottom .x-datebox-triangle,
+.x-datebox-year-read-view-down-arrow {
+  margin-left: -8px;
+  position: absolute;
+}
+.triangle-arrow,
+.triangle-arrow::before,
+.triangle-arrow-up,
+.triangle-arrow-down,
+.x-datebox-tether-element-attached-top .x-datebox-triangle,
+.x-datebox-tether-element-attached-bottom .x-datebox-triangle,
+.x-datebox-year-read-view-down-arrow {
+  box-sizing: content-box;
+  position: absolute;
+  border: 8px solid transparent;
+  height: 0;
+  width: 1px;
+}
+.triangle-arrow::before {
+  content: "";
+  z-index: -1;
+  border-width: 8px;
+  left: -8px;
+  border-bottom-color: #ccc;
+}
+.triangle-arrow-up,
+.x-datebox-tether-element-attached-top .x-datebox-triangle,
+.x-datebox-tether-element-attached-bottom .x-datebox-triangle {
+  top: 0;
+  margin-top: -8px;
+}
+.triangle-arrow-up,
+.triangle-arrow-up::before,
+.x-datebox-tether-element-attached-top .x-datebox-triangle,
+.x-datebox-tether-element-attached-bottom .x-datebox-triangle {
+  border-top: none;
+  border-bottom-color: #fdfdfd;
+}
+.triangle-arrow-up::before {
+  top: -1px;
+  border-bottom-color: #ccc;
+}
+.triangle-arrow-down,
+.x-datebox-year-read-view-down-arrow {
+  bottom: 0;
+  margin-bottom: -8px;
+}
+.triangle-arrow-down,
+.triangle-arrow-down::before,
+.x-datebox-year-read-view-down-arrow {
+  border-bottom: none;
+  border-top-color: #fff;
+}
+.triangle-arrow-down::before {
+  bottom: -1px;
+  border-top-color: #ccc;
+}
+.x-datebox {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 0.3em;
+  display: inline-block;
+  position: relative;
+}
+.x-datebox-triangle {
+  position: absolute;
+  left: 50px;
+}
+.x-datebox-tether-element-attached-bottom.x-datebox-tether-element {
+  margin-top: -20px;
+}
+.x-datebox-header {
+  text-align: center;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ccc;
+  border-top-left-radius: 0.3em;
+  border-top-right-radius: 0.3em;
+  padding-top: 8px;
+  position: relative;
+}
+.x-datebox-current-month {
+  margin-top: 0;
+  color: #000;
+  font-weight: bold;
+  font-size: 13px;
+}
+.x-datebox-current-month-hasYearDropdown {
+  margin-bottom: 16px;
+}
+.x-datebox-navigation {
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  width: 0;
+  border: 6px solid transparent;
+}
+.x-datebox-navigation-prev {
+  left: 10px;
+  border-right-color: #ccc;
+}
+.x-datebox-navigation-prev:hover {
+  border-right-color: #b3b3b3;
+}
+.x-datebox-navigation-next {
+  right: 10px;
+  border-left-color: #ccc;
+}
+.x-datebox-navigation-next:hover {
+  border-left-color: #b3b3b3;
+}
+.x-datebox-navigation-years {
+  position: relative;
+  top: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.x-datebox-navigation-years-prev {
+  top: 4px;
+  border-top-color: #ccc;
+}
+.x-datebox-navigation-years-prev:hover {
+  border-top-color: #b3b3b3;
+}
+.x-datebox-navigation-years-upcoming {
+  top: -4px;
+  border-bottom-color: #ccc;
+}
+.x-datebox-navigation-years-upcoming:hover {
+  border-bottom-color: #b3b3b3;
+}
+.x-datebox-month {
+  margin: 5px;
+  text-align: center;
+}
+.x-datebox-day-name,
+.x-datebox-day {
+  color: #333;
+  display: inline-block;
+  width: 24px;
+  line-height: 24px;
+  text-align: center;
+  margin: 2px;
+}
+.x-datebox-day {
+  cursor: pointer;
+}
+.x-datebox-day:hover {
+  border-radius: 0.3em;
+  background-color: #fdfdfd;
+}
+.x-datebox-day-today {
+  font-weight: bold;
+}
+.x-datebox-day-selected,
+.x-datebox-day-in-range {
+  border-radius: 0.3em;
+  background-color: #216ba5;
+  color: #fff;
+}
+.x-datebox-day-selected:hover,
+.x-datebox-day-in-range:hover {
+  background-color: #1d5d90;
+}
+.x-datebox-day-disabled {
+  cursor: default;
+  color: #ccc;
+}
+.x-datebox-day-disabled:hover {
+  background-color: transparent;
+}
+.x-datebox-input-container {
+  position: relative;
+  display: inline-block;
+}
+.x-datebox-year-read-view {
+  width: 50%;
+  left: 25%;
+  position: absolute;
+  bottom: 25px;
+  border: 1px solid transparent;
+  border-radius: 0.3em;
+}
+.x-datebox-year-read-view:hover {
+  cursor: pointer;
+}
+.x-datebox-year-read-view-down-arrow {
+  border-top-color: #ccc;
+  margin-bottom: 3px;
+  left: 5px;
+  top: 9px;
+  position: relative;
+  border-width: 6px;
+}
+.x-datebox-year-read-view-down-arrow:hover {
+  border-top-color: #b3b3b3;
+}
+.x-datebox-year-read-view-selected-year {
+  right: 6px;
+  position: relative;
+}
+.x-datebox-year-dropdown {
+  background-color: #fdfdfd;
+  position: absolute;
+  width: 50%;
+  left: 25%;
+  top: 30px;
+  text-align: center;
+  border-radius: 0.3em;
+  border: 1px solid #ccc;
+}
+.x-datebox-year-dropdown:hover {
+  cursor: pointer;
+}
+.x-datebox-year-option {
+  line-height: 20px;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.x-datebox-year-option:first-of-type {
+  border-top-left-radius: 0.3em;
+  border-top-right-radius: 0.3em;
+}
+.x-datebox-year-option:last-of-type {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-bottom-left-radius: 0.3em;
+  border-bottom-right-radius: 0.3em;
+}
+.x-datebox-year-option:hover {
+  background-color: #ccc;
+}
+.x-datebox-year-option:hover .x-datebox-navigation-years-upcoming {
+  border-bottom-color: #b3b3b3;
+}
+.x-datebox-year-option:hover .x-datebox-navigation-years-prev {
+  border-top-color: #b3b3b3;
+}
+.x-datebox-year-option-selected {
+  position: absolute;
+  left: 30px;
+}
+.x-datebox-close-icon {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  height: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: middle;
+}
+.x-datebox-close-icon::after {
+  background-color: #216ba5;
+  border-radius: 50%;
+  bottom: 0;
+  box-sizing: border-box;
+  color: #fff;
+  content: "\00d7";
+  cursor: pointer;
+  font-size: 12px;
+  height: 16px;
+  width: 16px;
+  line-height: 1;
+  margin: -8px auto 0;
+  padding: 2px;
+  position: absolute;
+  right: 7px;
+  text-align: center;
+  top: 50%;
+}
+.x-datebox-today-btn {
+  background: #fdfdfd;
+  border-top: 1px solid #ccc;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  padding: 5px 0;
+}
+.x-datebox-tether-element {
+  z-index: 2147483647;
+}

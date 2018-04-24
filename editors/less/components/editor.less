@@ -1,0 +1,111 @@
+
+//
+// editors
+// ==============================
+
+// Base
+// ------------------------------
+
+.x-editor {
+	.box-sizing(border-box);
+	font-size: 12px;
+	border: 1px solid #D3D3D3;
+	margin: 0;
+	padding: 4px;
+	white-space: normal;
+	outline-style: none;
+	resize: none;
+	.border-radius(5px 5px 5px 5px);
+
+	&:focus{
+		border-color: @input-border-color-focus;
+		outline: 0;
+	}
+	&.disabled{
+		background-color: @input-bg-disabled;
+		color: @control-disabled-color;
+		pointer-events: none;
+	}
+
+	// firefox weirdness
+	&::-moz-focus-inner {
+		border: 0;
+		outline : 0;
+	}
+	// ie weirdness
+	&::-ms-expand {
+    display: none;
+	}
+	&::-ms-clear {
+		display: none;
+	}
+}
+
+// No Edit
+// ------------------------------
+
+// Use an exclusive class, not a modifier as they are distinctly different
+.x-editor-noedit {
+	display: inline-block;
+	color: @text-color;
+	padding: .5em @input-padding-horizontal;
+}
+
+.x-editor-noedit-multiline {
+	line-height: 1.3;
+	height: auto;
+	padding: .5em @input-padding-horizontal;
+	white-space: normal;
+}
+
+// Textarea
+// ------------------------------
+
+textarea.x-editor {
+	.resizable(vertical);
+	height: auto;
+	line-height: 1.4em;
+	min-height: 6.75em; // give user's comfortable room to write - about 4 rows
+	padding: .5em @input-padding-horizontal;
+}
+
+
+// Select
+// ------------------------------
+
+// combobox
+.x-combobox {
+}
+
+// arrows
+
+// checkbox
+.x-checkbox {
+	height: @checkbox-radio-height;
+}
+
+// redio
+.x-radio {
+	box-shadow: none;
+	height: @checkbox-radio-height;
+	vertical-align: middle;
+}
+
+
+.x-textbox-container{
+	display: inline-block;
+	// vertical-align: middle;
+}
+
+
+// Sizes
+
+.x-editor-lg { font-size: @font-size-lg; }
+.x-editor-sm { font-size: @font-size-sm; }
+.x-editor-xs {
+	font-size: @font-size-xs;
+	line-height: 1.9;
+	padding: 0;
+  margin: 0;
+  height: 1.5em;
+}

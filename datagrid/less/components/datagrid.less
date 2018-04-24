@@ -1,0 +1,164 @@
+/*
+* from datagrid
+*/
+.x-datagrid-container{
+  text-align: left;
+  border-width: 1px;
+  border-style: solid;
+  border-color: @border-color;
+
+  & td{
+    padding: 4px 0px;
+    margin: 0px;
+
+    border-width: 0 1px 1px 0;
+    border-style: dotted;
+    border-color: @border-color;
+  }
+  & td.div{
+    overflow: hidden;
+  }
+}
+
+.x-datagrid-header{
+  font-size: @font-size-base;
+  & tbody{
+    background-color: @datagrid-bg;
+    .background-linear-gradient(top, #fdfdfd 0, #f5f5f5 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#fdfdfd,endColorstr=#f5f5f5,GradientType=0);
+  }
+}
+
+.x-datagrid-body{
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: @border-color;
+  table-layout: fixed;
+  word-wrap: break-word;
+
+  & td{
+    margin: 0;
+    font-size: @font-size-base;
+  }
+  & td.row-number{
+    border-width: 0 1px 0 0;
+    border-style: dotted;
+    border-color: @border-color;
+  }
+  & td.striped{
+    /*去掉datagrid中单元格之间的线*/
+    border-bottom:1px dotted transparent;   /*去掉竖线*/
+    /*border-right:1px dotted transparent;*/  /*去掉横线*/
+  }
+}
+
+.x-datagrid-row{
+  cursor: pointer;
+
+  &.odd-striped{
+    background-color: @datagrid-bg;
+  }
+
+  &.selected{
+    color: #FFFFFF;
+    background-color: #0092DC;
+  }
+
+}
+
+.x-datagrid-title{
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: @border-color;
+
+  font-size: @font-size-base;
+  font-weight: bold;
+
+  color: #575765;
+  height: @component-height;
+  line-height: @component-height;
+  padding: @component-padding;
+  position: relative;
+  background-color: @datagrid-bg;
+  .background-linear-gradient(top, #F8F8F8 0, #eeeeee 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F8F8F8,endColorstr=#eeeeee,GradientType=0);
+}
+
+.x-datagrid-toolbar{
+  height: auto;
+  padding: 1px 2px;
+  background: #fafafa;
+
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: @border-color;
+}
+
+
+.x-datagrid-pagination{
+  display: block;
+  font-size: @font-size-base;
+  padding: 3px 10px;
+  border-width: 0 0 0 0;
+  border-style: solid;
+  border-color: @border-color;
+  background: @datagrid-bg;
+
+  &.fit{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-width: 1px 0 0 0;
+  }
+  & .x-btn{
+    vertical-align: middle;
+  }
+}
+
+.pagination-separator {
+  display: inline;
+  border-left: 1px solid @border-color;
+  border-right: 1px solid @border-color;
+  margin: 0px 3px;
+}
+
+.pagination-info {
+  float: right;
+  margin: 0 6px 0 0;
+  padding: 0;
+  line-height: 20px;
+  font-size: @font-size-base;
+}
+
+.x-datagrid-container {
+  position: relative;
+}
+
+.x-datagrid-body-container {
+  &.fit{
+    position: absolute;
+    bottom: 28px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+
+@media print {
+  .x-datagrid-pagination{
+    & .x-btn{
+    	display: none;
+    }
+
+    & select {
+      margin-right: 10px;
+    }
+  }
+
+  .pagination-separator {
+    display: none;
+  }
+}

@@ -1,0 +1,349 @@
+//
+// datebox
+// ==============================
+.triangle-arrow {
+  margin-left: -@triangle-size;
+  position: absolute;
+
+  &,
+  &::before {
+    box-sizing: content-box;
+    position: absolute;
+    border: @triangle-size solid transparent;
+
+    height: 0;
+    width: 1px;
+  }
+
+  &::before {
+    content: "";
+    z-index: -1;
+    border-width: @triangle-size;
+
+    left: -@triangle-size;
+    border-bottom-color: @input-border-color;
+  }
+}
+
+.triangle-arrow-up {
+  &:extend(.triangle-arrow);
+
+  top: 0;
+  margin-top: -@triangle-size;
+
+  &,
+  &::before {
+    border-top: none;
+    border-bottom-color: @body-bg;
+  }
+
+  &::before {
+    top: -1px;
+    border-bottom-color: @input-border-color;
+  }
+}
+
+.triangle-arrow-down {
+  &:extend(.triangle-arrow);
+
+  bottom: 0;
+  margin-bottom: -@triangle-size;
+
+  &,
+  &::before {
+    border-bottom: none;
+    border-top-color: #fff;
+  }
+
+  &::before {
+    bottom: -1px;
+    border-top-color: @input-border-color;
+  }
+}
+
+
+
+.x-datebox {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  background-color: #fff;
+  color: @text-color;
+  border: 1px solid @input-border-color;
+  border-radius: @border-radius-base;
+  display: inline-block;
+  position: relative;
+}
+
+.x-datebox-triangle {
+  position: absolute;
+  left: 50px;
+}
+
+.x-datebox-tether-element-attached-top .x-datebox-triangle {
+  &:extend(.triangle-arrow-up);
+}
+
+.x-datebox-tether-element-attached-bottom .x-datebox-triangle {
+  &:extend(.triangle-arrow-up);
+}
+
+.x-datebox-tether-element-attached-bottom.x-datebox-tether-element {
+  margin-top: -20px;
+}
+
+.x-datebox-header {
+  text-align: center;
+  background-color: @calendar-background-color;
+  border-bottom: 1px solid @input-border-color;
+  border-top-left-radius: @border-radius-base;
+  border-top-right-radius: @border-radius-base;
+  padding-top: 8px;
+  position: relative;
+}
+
+.x-datebox-current-month {
+  margin-top: 0;
+  color: #000;
+  font-weight: bold;
+  font-size: 13px;
+
+  &-hasYearDropdown {
+    margin-bottom: 16px;
+  }
+}
+
+.x-datebox-navigation {
+  line-height: @item-size;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  width: 0;
+  border: @navigation-size solid transparent;
+
+  &-prev {
+    left: 10px;
+    border-right-color: @muted-color;
+
+    &:hover {
+      border-right-color: darken(@muted-color, 10%);
+    }
+  }
+
+  &-next {
+    right: 10px;
+    border-left-color: @muted-color;
+
+    &:hover {
+      border-left-color: darken(@muted-color, 10%);
+    }
+  }
+
+  &-years {
+    position: relative;
+    top: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    &-prev {
+      top: 4px;
+      border-top-color: @muted-color;
+
+      &:hover {
+        border-top-color: darken(@muted-color, 10%);
+      }
+    }
+
+    &-upcoming {
+      top: -4px;
+      border-bottom-color: @muted-color;
+
+      &:hover {
+        border-bottom-color: darken(@muted-color, 10%);
+      }
+    }
+  }
+}
+
+.x-datebox-month {
+  margin: @datepicker__margin;
+  text-align: center;
+}
+
+.x-datebox-day-name,
+.x-datebox-day {
+  color: @text-color;
+  display: inline-block;
+  width: @item-size;
+  line-height: @item-size;
+  text-align: center;
+  margin: @day-margin;
+}
+
+.x-datebox-day {
+  cursor: pointer;
+
+  &:hover {
+    border-radius: @border-radius-base;
+    background-color: @body-bg;
+  }
+
+  &-today {
+    font-weight: bold;
+  }
+
+  &-selected,
+  &-in-range {
+    border-radius: @border-radius-base;
+    background-color: @selected-color;
+    color: #fff;
+
+    &:hover {
+      background-color: darken(@selected-color, 5%);
+    }
+  }
+
+  &-disabled {
+    cursor: default;
+    color: @muted-color;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
+
+.x-datebox-input-container {
+  position: relative;
+  display: inline-block;
+}
+
+.x-datebox-year-read-view {
+  width: 50%;
+  left: 25%;
+  position: absolute;
+  bottom: 25px;
+  border: 1px solid transparent;
+  border-radius: @border-radius-base;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &-down-arrow {
+    &:extend(.triangle-arrow-down);
+    border-top-color: @muted-color;
+    margin-bottom: 3px;
+    left: 5px;
+    top: 9px;
+    position: relative;
+    border-width: @navigation-size;
+    &:hover {
+      border-top-color: darken(@muted-color, 10%);
+    }
+  }
+
+  &-selected-year {
+    right: @navigation-size;
+    position: relative;
+  }
+}
+
+.x-datebox-year-dropdown {
+  background-color: @body-bg;
+  position: absolute;
+  width: 50%;
+  left: 25%;
+  top: 30px;
+  text-align: center;
+  border-radius: @border-radius-base;
+  border: 1px solid @input-border-color;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.x-datebox-year-option {
+  line-height: 20px;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  &:first-of-type {
+    border-top-left-radius: @border-radius-base;
+    border-top-right-radius: @border-radius-base;
+  }
+
+  &:last-of-type {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-bottom-left-radius: @border-radius-base;
+    border-bottom-right-radius: @border-radius-base;
+  }
+
+  &:hover {
+    background-color: @muted-color;
+
+    .x-datebox-navigation-years-upcoming {
+      border-bottom-color: darken(@muted-color, 10%);
+    }
+
+    .x-datebox-navigation-years-prev {
+      border-top-color: darken(@muted-color, 10%);
+    }
+  }
+
+  &-selected {
+    position: absolute;
+    left: 30px;
+  }
+}
+
+.x-datebox-close-icon {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  height: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: middle;
+
+  &::after {
+    background-color: @selected-color;
+    border-radius: 50%;
+    bottom: 0;
+    box-sizing: border-box;
+    color: #fff;
+    content: "\00d7";
+    cursor: pointer;
+    font-size: 12px;
+    height: 16px;
+    width: 16px;
+    line-height: 1;
+    margin: -8px auto 0;
+    padding: 2px;
+    position: absolute;
+    right: 7px;
+    text-align: center;
+    top: 50%;
+  }
+}
+
+.x-datebox-today-btn {
+  background: @body-bg;
+  border-top: 1px solid @input-border-color;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  padding: 5px 0;
+}
+
+.x-datebox-tether-element {
+  z-index: 2147483647;
+}

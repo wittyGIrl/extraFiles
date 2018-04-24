@@ -1,0 +1,60 @@
+.x-btn{
+  .border-radius(5px);
+  color: #444;
+  font-size: 12px;
+  background: #fafafa;
+  background-repeat: repeat-x;
+  border: 10px;
+  outline: none;
+  cursor: pointer;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff,endColorstr=#eeeeee,GradientType=0);
+  margin: 0 1px;
+  padding: 0 3px;
+
+  &:hover{
+    background-color: @gray-dark;
+  }
+
+  &.disabled{
+    opacity: 0.5;
+    color: #b1b1b1;
+  }
+  &.disabled:hover{
+    background-color: inherit;
+    cursor: default;
+  }
+
+  & span.btn-icon{
+    display: inline-block;
+    width: @icon-size;
+    height: @icon-size;
+    line-height: @icon-size;
+  }
+
+  & .first{
+    background: url('../images/pagination_icons.png') no-repeat 0 center;
+  }
+  & .pre{
+    background: url('../images/pagination_icons.png') no-repeat -@icon-size center;
+  }
+  & .last{
+    background: url('../images/pagination_icons.png') no-repeat -3 * @icon-size center;
+  }
+  & .next{
+    background: url('../images/pagination_icons.png') no-repeat -2 * @icon-size center;
+  }
+  & .load{
+    background: url('../images/pagination_icons.png') no-repeat -4 * @icon-size center;
+  }
+
+  & .close{
+    background: url('../images/panel_tools.png') no-repeat -@icon-size 0px;
+  }
+  & .max{
+    background: url('../images/panel_tools.png') no-repeat 0px -@icon-size;
+  }
+
+  & .restore{
+    background: url('../images/panel_tools.png') no-repeat -@icon-size -@icon-size;
+  }
+}

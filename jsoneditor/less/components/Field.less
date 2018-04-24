@@ -1,0 +1,204 @@
+
+// Lables styles
+// -------------------------
+
+.FormLabel {
+	// .transition( @common-transition );
+	color: @form-label-color;
+	display: inline-block;
+	margin-bottom: @spacing-xs;
+	font-size: @font-size-xs;
+	padding-left: 1.5em;
+}
+
+// FormField
+// ------------------------------
+
+.FormField {
+	.animation( slideInDown @form-animation-duration ease );
+	margin: @spacing-xs 0 @spacing-xs @spacing-md;
+	position: relative;
+
+	&.leaf {
+		margin-left: 0px;
+	}
+}
+
+
+
+// Form Rows
+// ------------------------------
+
+.FormRow {
+	&:extend(.u-clearfix all);
+	// margin-left: @spacing-md
+}
+@media (min-width: @screen-sm) {
+	.FormRow {
+		// margin: 0 -@input-padding-horizontal @spacing-md;
+		min-width: 100%;
+
+		> .FormField {
+			display: block; // override .Form--horizontal styles inside .FormRow
+			float: left;
+			// padding: 0 (@input-padding-horizontal / 2);
+
+			// sizes
+			&.one-half,
+			&.two-quarters,
+			&.three-sixths   { width: 50%; .margin-horizontal-none()}
+
+			&.one-quarter    { width: 25%; .margin-horizontal-none()}
+			&.three-quarters { width: 75%; .margin-horizontal-none()}
+
+			&.one-third,
+			&.two-sixths     { width: 33.333%; .margin-horizontal-none()}
+			&.two-thirds,
+			&.four-sixths    { width: 66.666%; .margin-horizontal-none()}
+
+			&.one-fifth      { width: 20%; .margin-horizontal-none()}
+			&.two-fifths     { width: 40%; .margin-horizontal-none()}
+			&.three-fifths   { width: 60%; .margin-horizontal-none()}
+			&.four-fifths    { width: 80%; .margin-horizontal-none()}
+
+			&.one-sixth      { width: 16.666%; .margin-horizontal-none()}
+			&.five-sixths    { width: 83.333%; .margin-horizontal-none()}
+		}
+	}
+
+	// inside a form field
+	.FormField .FormRow {
+		margin-bottom: 1px;
+	}
+}
+
+
+// Validation
+// ------------------------------
+
+
+// message
+
+.form-validation {
+	.animation( formValidationMessage @form-animation-duration ease );
+	font-size: @font-size-xs;
+	margin-top: .5em;
+	overflow: hidden;
+
+	&.is-invalid {
+		color: @app-danger;
+	}
+	&.is-valid {
+		color: @app-success;
+	}
+}
+
+@-webkit-keyframes formValidationMessage {
+	from { max-height: 0; opacity: 0; }
+	to   { max-height: @font-size-base; opacity: 1; }
+}
+@keyframes formValidationMessage {
+	from { max-height: 0; opacity: 0; }
+	to   { max-height: @font-size-base; opacity: 1; }
+}
+
+@-webkit-keyframes slideInDown {
+	from { max-height: 0; opacity: 0; }
+	to   { max-height: 100%; opacity: 1; }
+}
+@keyframes slideInDown {
+	from { max-height: 0; opacity: 0; }
+	to   { max-height: 100%; opacity: 1; }
+}
+
+// effects on other elements
+
+.FormField.is-invalid {
+	.FormLabel {
+		color: @app-danger;
+	}
+	.FormInput {
+		border-color: @app-danger;
+
+		&:focus {
+			border-color: @app-danger;
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 3px fade(@app-danger, 10%);
+		}
+	}
+}
+.FormField.is-valid {
+	.FormLabel {
+		color: @app-success;
+	}
+	.FormInput {
+		border-color: @app-success;
+
+		&:focus {
+			border-color: @app-success;
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 3px fade(@app-success, 10%);
+		}
+	}
+}
+
+
+// Horizontal Form
+// ------------------------------
+
+// 1. ensure stacking on mobile
+// 2. add spacing above the element when it's stacked. no need to remove at
+//    higher break-points because it becomes a table cell, which aren't
+//    effected by margin
+
+.horizontal {
+	.FormLabel {
+		display: block; // 1
+
+		&:not(:first-child) {
+			margin-top: @spacing-md; // 2
+		}
+	}
+}
+
+@media (min-width: @screen-sm) {
+	.horizontal {
+		// Make the wrapper behave like a table
+		&.FormField {
+			display: table;
+			table-layout: fixed;
+			width: 100%;
+
+			&.offset-absent-label {
+				padding-left: @form-label-width;
+			}
+		}
+
+		// Fix the label width to allow the field to stretch
+		.FormLabel {
+			display: table-cell;
+			line-height: @component-height;
+			margin-bottom: 0;
+			vertical-align: top;
+			width: @form-label-width;
+
+			&:not(:first-child) {
+				padding-left: @grid-gutter-width;
+			}
+		}
+
+		// reset styles when using rows inside .Form--horizontal
+		&.FormRow > .FormField {
+			display: block;
+			margin-bottom: 0;
+			min-width: 0;
+
+			> .FormLabel {
+				display: block;
+			}
+
+			.FormInput {
+				margin: 0;
+				width: 100%;
+			}
+		}
+	}
+}
